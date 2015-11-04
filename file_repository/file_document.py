@@ -73,7 +73,7 @@ class FileDocument(orm.Model):
     def _run(self, cr, uid, file_doc, context=None):
         super(FileDocument, self)._run(cr, uid, file_doc, context=context)
         repo_obj = self.pool['file.repository']
-        if file_doc.direction == 'output' and file_doc.active is True:
+        if file_doc.direction == 'output' and file_doc.active == True:
             connection = repo_obj.repository_connection(
                 cr, uid, file_doc.repository_id.id, context=context)
             self.export_file_document(cr, uid, connection, file_doc,
